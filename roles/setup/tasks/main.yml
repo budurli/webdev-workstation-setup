@@ -1,0 +1,28 @@
+
+- name: install homebrew
+  shell: 'yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"' 
+  args:
+    creates: /usr/local/bin/brew
+
+- name: ensure homebrew is updated 
+  homebrew:
+    state: latest
+    update_homebrew: yes
+
+- name: homebrew applications install
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ apps }}"
+
+- name: homebrew cask applications install
+  homebrew_cask:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ cask_apps }}"
+
+- name: install oh-my-zsh
+  shell: 'yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"' 
+
+- name: set oh-my-zsh as a default shell
+  shell: 'chsh -s $(which zsh)'

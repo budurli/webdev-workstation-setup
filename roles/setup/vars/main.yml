@@ -1,0 +1,27 @@
+apps:
+  - axel
+  - curl
+  - git
+  - htop
+  - ncdu
+  - vim
+  - wget
+  - zsh
+  - docker
+
+cask_apps:
+  - firefox
+  - google-chrome
+  - google-drive
+  - iterm2
+  - microsoft-office
+  - opera
+  - pycharm
+  - rescuetime
+  - skype
+  - skype-for-business
+  - slack
+  - sublime-text
+  - telegram
+  - toggl
+  - transmission
